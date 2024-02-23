@@ -25,6 +25,11 @@ enum Inspection {
   COMPLETED
 }
 
+type Connection {
+  status: String!
+}
+
 type Query {
   teams: [Team!]!
+  connection: Connection!
 }

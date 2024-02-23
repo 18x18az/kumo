@@ -5,6 +5,7 @@ import { join } from 'path'
 import { TeamModule } from './features/team/team.module'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { ConfigModule } from '@nestjs/config'
+import { ConnectionModule } from './connection/connection.module'
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { ConfigModule } from '@nestjs/config'
     ConfigModule.forRoot({
       isGlobal: true
     }),
+    ConnectionModule,
     TypeOrmModule.forRootAsync({
       useFactory: () => ({
         type: 'mssql',
