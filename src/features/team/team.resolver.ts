@@ -21,12 +21,12 @@ export class TeamResolver {
   }
 
   @Mutation(() => Team)
-  async updateCheckin (@Args('team', { type: () => String }) number: string, @Args('checkin', { type: () => Inspection }) checkin: Inspection): Promise<TeamEntity> {
+  async updateInspection (@Args('team', { type: () => String }) number: string, @Args('inspection', { type: () => Inspection }) inspection: Inspection): Promise<TeamEntity> {
     const team = await this.teamRepository.findOneBy({ number })
     if (team === null) {
       throw new NotFoundException('Team not found')
     }
-    team.checkin = checkin
+    team.inspection = inspection
     return await this.teamRepository.save(team)
   }
 }

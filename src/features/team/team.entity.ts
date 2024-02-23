@@ -10,5 +10,5 @@ export class TeamEntity {
     rank: number
 
   @Column({ enum: Inspection, type: 'simple-enum', default: Inspection.NOT_HERE })
-    checkin: Inspection
+    inspection: Inspection
 }
