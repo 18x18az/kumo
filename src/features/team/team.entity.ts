@@ -1,12 +1,9 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, PrimaryColumn } from 'typeorm'
 import { Inspection } from './team.interface'
 
 @Entity()
 export class TeamEntity {
-  @PrimaryGeneratedColumn()
-    id: number
-
-  @Column()
+  @PrimaryColumn()
     number: string
 
   @Column({ default: 0 })

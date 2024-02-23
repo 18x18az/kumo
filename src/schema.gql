@@ -3,9 +3,6 @@
 # ------------------------------------------------------
 
 type Team {
-  """Unique identifier for the team"""
-  id: Int!
-
   """The number of the team"""
   number: String!
 
@@ -32,4 +29,13 @@ type Connection {
 type Query {
   teams: [Team!]!
   connection: Connection!
+}
+
+type Mutation {
+  createTeams(teams: [CreateTeamInput!]!): [Team!]!
+}
+
+input CreateTeamInput {
+  """The number of the team"""
+  number: String!
 }
