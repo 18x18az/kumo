@@ -13,5 +13,5 @@ export class Team extends CreateTeamInput {
     rank: number
 
   @Field(() => Inspection, { description: 'The inspection status of the team' })
-    inspection: Inspection
+    checkin: Inspection
 }

@@ -10,7 +10,7 @@ type Team {
   rank: Int!
 
   """The inspection status of the team"""
-  inspection: Inspection!
+  checkin: Inspection!
 }
 
 """The inspection status of a team"""
@@ -33,6 +33,7 @@ type Query {
 
 type Mutation {
   createTeams(teams: [CreateTeamInput!]!): [Team!]!
+  updateCheckin(team: String!, checkin: Inspection!): Team!
 }
 
 input CreateTeamInput {
