@@ -21,9 +21,14 @@
   },
   "dependencies": {
     "@fastify/compress": "^7.0.0",
+    "@mercuriusjs/gateway": "^2.2.0",
     "@nestjs/common": "^10.0.0",
     "@nestjs/core": "^10.0.0",
+    "@nestjs/graphql": "^12.1.1",
+    "@nestjs/mercurius": "^12.1.1",
     "@nestjs/platform-fastify": "^10.3.3",
+    "graphql": "^16.8.1",
+    "mercurius": "^13.3.3",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1"
   },

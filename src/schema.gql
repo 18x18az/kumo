@@ -1,0 +1,12 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Team {
+  """Unique identifier for the team"""
+  id: Int!
+}
+
+type Query {
+  teams: [Team!]!
+}
