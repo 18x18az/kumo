@@ -10,7 +10,7 @@ import { TeamModule } from './features/team/team.module'
       driver: MercuriusDriver,
       subscription: true,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
-      graphiql: true
+      graphiql: process.env.NODE_ENV !== 'production'
     }),
     TeamModule
   ]
