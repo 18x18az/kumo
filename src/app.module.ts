@@ -3,6 +3,8 @@ import { MercuriusDriver, MercuriusDriverConfig } from '@nestjs/mercurius'
 import { GraphQLModule } from '@nestjs/graphql'
 import { join } from 'path'
 import { TeamModule } from './features/team/team.module'
+import { TypeOrmModule } from '@nestjs/typeorm'
+import { ConfigModule } from '@nestjs/config'
 
 @Module({
   imports: [
@@ -12,7 +14,25 @@ import { TeamModule } from './features/team/team.module'
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       graphiql: process.env.NODE_ENV !== 'production'
     }),
-    TeamModule
+    TeamModule,
+    ConfigModule.forRoot({
+      isGlobal: true
+    }),
+    TypeOrmModule.forRootAsync({
+      useFactory: () => ({
+        type: 'mssql',
+        host: process.env.DB_HOST,
+        port: parseInt(process.env.DB_PORT ?? '10225'),
+        username: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        database: 'dev',
+        entities: [join(__dirname, '**', '*.entity.{ts,js}')],
+        synchronize: true,
+        ssl: true,
+        retryWrites: false,
+        cache: true
+      })
+    })
   ]
 })
 export class AppModule {}
