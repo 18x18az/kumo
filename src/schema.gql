@@ -8,6 +8,21 @@ type Team {
 
   """The number of the team"""
   number: String!
+
+  """The rank of the team"""
+  rank: Int!
+
+  """The inspection status of the team"""
+  inspection: Inspection!
+}
+
+"""The inspection status of a team"""
+enum Inspection {
+  NOT_HERE
+  CHECKED_IN
+  NO_SHOW
+  IN_PROGRESS
+  COMPLETED
 }
 
 type Query {
