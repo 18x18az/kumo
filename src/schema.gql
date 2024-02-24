@@ -26,14 +26,31 @@ type Connection {
   status: String!
 }
 
+type Stage {
+  """The current stage of the event"""
+  stage: EventStage!
+}
+
+"""The current stage of the event"""
+enum EventStage {
+  WAITING_FOR_TEAMS
+  CHECKIN
+  QUALIFICATIONS
+  ALLIANCE_SELECTION
+  ELIMS
+  TEARDOWN
+}
+
 type Query {
   teams: [Team!]!
   connection: Connection!
+  stage: Stage!
 }
 
 type Mutation {
   createTeams(teams: [CreateTeamInput!]!): [Team!]!
   updateInspection(team: String!, inspection: Inspection!): Team!
+  setStage(stage: String!): Stage!
 }
 
 input CreateTeamInput {

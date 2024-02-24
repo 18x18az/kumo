@@ -6,6 +6,7 @@ import { TeamModule } from './features/team/team.module'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { ConfigModule } from '@nestjs/config'
 import { ConnectionModule } from './connection/connection.module'
+import { StageModule } from './features/stage/stage.module'
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { ConnectionModule } from './connection/connection.module'
       isGlobal: true
     }),
     ConnectionModule,
+    StageModule,
     TypeOrmModule.forRootAsync({
       useFactory: () => ({
         type: 'mssql',
