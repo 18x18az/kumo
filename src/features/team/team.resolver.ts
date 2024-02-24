@@ -4,7 +4,8 @@ import { InjectRepository } from '@nestjs/typeorm'
 import { TeamEntity } from './team.entity'
 import { Repository } from 'typeorm'
 import { Inspection } from './team.interface'
-import { NotFoundException } from '@nestjs/common'
+import { NotFoundException, UseGuards } from '@nestjs/common'
+import { AuthGuard } from '../../auth/auth.guard'
 
 @Resolver(() => Team)
 export class TeamResolver {
@@ -15,11 +16,13 @@ export class TeamResolver {
     return await this.teamRepository.find()
   }
 
+  @UseGuards(AuthGuard)
   @Mutation(() => [Team])
   async createTeams (@Args('teams', { type: () => [CreateTeamInput] }) teams: Team[]): Promise<TeamEntity[]> {
     return await this.teamRepository.save(teams)
   }
 
+  @UseGuards(AuthGuard)
   @Mutation(() => Team)
   async updateInspection (@Args('team', { type: () => String }) number: string, @Args('inspection', { type: () => Inspection }) inspection: Inspection): Promise<TeamEntity> {
     const team = await this.teamRepository.findOneBy({ number })
