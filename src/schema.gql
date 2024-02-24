@@ -50,7 +50,7 @@ type Query {
 type Mutation {
   createTeams(teams: [CreateTeamInput!]!): [Team!]!
   updateInspection(team: String!, inspection: Inspection!): Team!
-  setStage(stage: String!): Stage!
+  setStage(stage: EventStage!): Stage!
 }
 
 input CreateTeamInput {

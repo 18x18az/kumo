@@ -1,10 +1,9 @@
 import { Module } from '@nestjs/common'
 import { StageResolver } from './stage.resolver'
-import { TypeOrmModule } from '@nestjs/typeorm'
-import { StageEntity } from './stage.entity'
+import { StoreModule } from '../../store/store.module'
 
 @Module({
-  imports: [TypeOrmModule.forFeature([StageEntity])],
+  imports: [StoreModule],
   providers: [StageResolver]
 })
 export class StageModule {}
