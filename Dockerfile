@@ -57,8 +57,8 @@ RUN apk add --no-cache libc6-compat
 ENV NODE_ENV production
 
 # Copy only the necessary files
-COPY --chown=node:node --from=build /app/dist dist
-COPY --chown=node:node --from=build /app/node_modules node_modules
+COPY --chown=root:root --chmod=644 /app/dist dist
+COPY --chown=root:root --chmod=644 /app/node_modules node_modules
 
 # Set Docker as non-root user
 USER node
