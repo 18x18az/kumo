@@ -6,9 +6,6 @@ export class TeamEntity {
   @PrimaryColumn()
     number: string
 
-  @Column({ default: 0 })
-    rank: number
-
   @Column({ enum: Inspection, type: 'simple-enum', default: Inspection.NOT_HERE })
     inspection: Inspection
 }

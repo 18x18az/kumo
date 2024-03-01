@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common'
-import { MatchResolver } from './match.resolver'
+import { SittingResolver } from './match.resolver'
 import { MatchService } from './match.service'
 
 @Module({
-  providers: [MatchResolver, MatchService]
+  providers: [SittingResolver, MatchService]
 })
 export class MatchModule {}

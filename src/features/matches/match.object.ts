@@ -1,12 +1,14 @@
 import { Field, InputType, Int, ObjectType } from '@nestjs/graphql'
 import { MatchStatus, Round } from './match.interfaces'
-import { Team } from '../team/team.object'
 
-@InputType()
+@InputType('SittingInput')
 @ObjectType()
-class MatchBase {
+export class Sitting {
   @Field(() => Int)
     id: number
+
+  @Field(() => Int)
+    sitting: number
 
   @Field(() => Round)
     round: Round
@@ -22,22 +24,10 @@ class MatchBase {
 
   @Field(() => MatchStatus)
     status: MatchStatus
-}
 
-@InputType()
-export class MatchStored extends MatchBase {
-  @Field(() => [Int])
-    red: number[]
+  @Field(() => [String])
+    red: string[]
 
-  @Field(() => [Int])
-    blue: number[]
-}
-
-@ObjectType()
-export class Match extends MatchBase {
-  @Field(() => [Team])
-    red: Team[]
-
-  @Field(() => [Team])
-    blue: Team[]
+  @Field(() => [String])
+    blue: string[]
 }

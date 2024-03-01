@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common'
-import { MatchStored } from './match.object'
+import { Sitting } from './match.object'
 
 @Injectable()
 export class MatchService {
-  private matches: MatchStored[] = []
+  private matches: Sitting[] = []
 
-  getMatches (): MatchStored[] {
-    return []
+  getMatches (): Sitting[] {
+    return this.matches
   }
 
-  setMatches (matches: MatchStored[]): MatchStored[] {
+  setMatches (matches: Sitting[]): Sitting[] {
     this.matches = matches
     return this.matches
   }
