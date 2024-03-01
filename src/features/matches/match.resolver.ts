@@ -11,7 +11,7 @@ export class MatchResolver {
     return this.service.getMatches()
   }
 
-  @Mutation(() => [MatchStored]) setMatches (
+  @Mutation(() => [Match]) setMatches (
     @Args('matches', { type: () => [MatchStored] }) matches: MatchStored[]
   ): MatchStored[] {
     return this.service.setMatches(matches)

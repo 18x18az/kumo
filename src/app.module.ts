@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { ConfigModule } from '@nestjs/config'
 import { ConnectionModule } from './connection/connection.module'
 import { StageModule } from './features/stage/stage.module'
+import { MatchModule } from './features/matches/match.module'
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { StageModule } from './features/stage/stage.module'
     ConfigModule.forRoot({
       isGlobal: true
     }),
+    MatchModule,
     ConnectionModule,
     StageModule,
     TypeOrmModule.forRootAsync({
