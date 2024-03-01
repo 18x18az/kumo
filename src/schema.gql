@@ -41,8 +41,49 @@ enum EventStage {
   TEARDOWN
 }
 
+type Sitting {
+  id: Int!
+  sitting: Int!
+  round: Round!
+  contest: Int!
+  match: Int!
+  field: String!
+  status: MatchStatus!
+  red: [String!]!
+  blue: [String!]!
+}
+
+"""The round of the match"""
+enum Round {
+  QUAL
+  Ro16
+  QF
+  SF
+  F
+}
+
+"""The status of the match"""
+enum MatchStatus {
+  UPCOMING
+  IN_PROGRESS
+  SCORING
+}
+
+input SittingInput {
+  id: Int!
+  sitting: Int!
+  round: Round!
+  contest: Int!
+  match: Int!
+  field: String!
+  status: MatchStatus!
+  red: [String!]!
+  blue: [String!]!
+}
+
 type Query {
   teams: [Team!]!
+  matches: [Sitting!]!
   connection: Connection!
   stage: Stage!
 }
@@ -50,6 +91,7 @@ type Query {
 type Mutation {
   createTeams(teams: [CreateTeamInput!]!): [Team!]!
   updateInspection(team: String!, inspection: Inspection!): Team!
+  setSittings(sittings: [SittingInput!]!): [Sitting!]!
   setStage(stage: EventStage!): Stage!
 }
 
