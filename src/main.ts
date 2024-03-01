@@ -10,7 +10,7 @@ async function bootstrap (): Promise<void> {
     { logger: ['error', 'warn', 'log'] }
   )
   await app.register(compression)
-  await app.enableCors()
+  app.enableCors()
   await app.listen(1818, '0.0.0.0')
 }
 void bootstrap()
