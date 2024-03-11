@@ -30,7 +30,7 @@
     "@nestjs/platform-fastify": "^10.3.3",
     "@nestjs/typeorm": "^10.0.2",
     "graphql": "^16.8.1",
-    "mercurius": "^13.3.3",
+    "mercurius": "^13.4.0",
     "mssql": "^10.0.2",
     "reflect-metadata": "^0.2.1",
     "rxjs": "^7.8.1",
