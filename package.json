@@ -24,7 +24,7 @@
     "@mercuriusjs/gateway": "^2.2.0",
     "@nestjs/common": "^10.0.0",
     "@nestjs/config": "^3.2.0",
-    "@nestjs/core": "^10.0.0",
+    "@nestjs/core": "^10.3.4",
     "@nestjs/graphql": "^12.1.1",
     "@nestjs/mercurius": "^12.1.1",
     "@nestjs/platform-fastify": "^10.3.4",
